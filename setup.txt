@@ -1,0 +1,6 @@
+sudo chmod 644 /lib/systemd/system/volume_knob.service
+chmod +x /home/pi/volume_knob.py
+sudo systemctl daemon-reload
+sudo systemctl enable volume_knob.service
+sudo systemctl start volume_knob.service
+
