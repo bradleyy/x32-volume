@@ -1,0 +1,33 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "b799a82f89d25a3a973c4e28ec63c0f9d0b5618f2dc5cfdb91d974c683834a0d"
+        },
+        "pipfile-spec": 6,
+        "requires": {},
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "lib-powermate": {
+            "hashes": [
+                "sha256:2dde47e60c34bfa5282d6cbc779e49597bfa6f7a6b77cfe12feaa17d1e3b905d"
+            ],
+            "index": "pypi",
+            "version": "==0.1.0"
+        },
+        "python-osc": {
+            "hashes": [
+                "sha256:d04f223048f461d60fa7214eeb0f605ddf4bd40aba5a03c8cff3ec42f73902b3"
+            ],
+            "index": "pypi",
+            "version": "==1.7.2"
+        }
+    },
+    "develop": {}
+}

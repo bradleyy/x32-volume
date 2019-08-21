@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-import ConfigParser
+import configparser
 from time import sleep
 
-from osc import OSC
+from pythonosc.udp_client import SimpleUDPClient
 from powermate import find_wheels
 from powermate import PowerMateWheel
 
@@ -16,14 +16,14 @@ def set_volume():
     elif (volume > 1.0):
         volume = 1.0
         pass
-    oscclient.send(OSC.OSCMessage(BOARD_CHANNEL, volume))
+    client.send(BOARD_CHANNEL, volume)
 
     my_wheel.brightness(int(volume * 255))
     print("setting volume to {}".format(volume))
 
 def read_config():
     try:
-        config = ConfigParser.ConfigParser()
+        config = configparser.ConfigParser()
         config.read('/home/pi/volume_knob.cfg')
 
         BOARD_ADDRESS = config.get('BOARD', 'address')
@@ -77,9 +77,8 @@ while (not BOARD_ADDRESS or not BOARD_CHANNEL or not BOARD_PORT or not WHEEL_SPE
     sleep(5)
 
 
-oscclient = OSC.OSCClient()
 print("Connecting to Sound Board...")
-oscclient.connect((BOARD_ADDRESS, BOARD_PORT));
+client = SimpleUDPClient(BOARD_ADDRESS, BOARD_PORT)
 print("Connected.")
 print("setting volume")
 set_volume()
