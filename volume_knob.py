@@ -18,7 +18,7 @@ def set_volume():
         pass
     client.send(BOARD_CHANNEL, volume)
 
-    my_wheel.brightness(int(volume * 255))
+    my_wheel.brightness(int(volume * volume * 255))
     print("setting volume to {}".format(volume))
 
 def read_config():
